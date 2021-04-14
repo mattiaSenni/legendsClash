@@ -7,43 +7,35 @@ namespace legendsClash
 {
     public class Asset
     {
-        public List<Personaggio> Personaggi
+
+        public Asset(List<Arma> a, List<Personaggio> p, Scenari s)
         {
-            get => default;
-            set
-            {
-            }
+            Armi = a;
+            Personaggi = p;
+            Scenari = s;
         }
 
-        public List<Arma> Armi
+        public List<Personaggio> Personaggi { get; set; }
+
+        public List<Arma> Armi { get; set; }
+
+        public Scenari Scenari { get; set; }
+
+        public Battaglia CreaPartitta(Personaggio p1, Personaggio p2, Arma a1, Arma a2, CambioArma cambio, int nRound)
         {
-            get => default;
-            set
-            {
-            }
+            return new Battaglia(p1, p2, a1, a2, cambio, nRound);
         }
 
-        public Scenari Scenari
+        public void CreaPersonaggio()
         {
-            get => default;
-            set
-            {
-            }
+            Personaggio personaggio = new Personaggio();
+            Personaggi.Add(personaggio);
         }
 
-        public void creaPartitta()
+        public void CreaArma()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void creaPersonaggio()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void creaArma()
-        {
-            throw new System.NotImplementedException();
+            Arma arma = new Arma();
+            Armi.Add(arma);
         }
     }
 }

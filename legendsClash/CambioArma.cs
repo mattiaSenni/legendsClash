@@ -5,10 +5,10 @@ using System.Text;
 
 namespace legendsClash
 {
-    enum CambioArma
+    public enum CambioArma
     {
-        sempre,
-        vincitore,
-        perdente
+        sempre = 0,
+        vincitore = 1,
+        perdente = 2
     }
 }

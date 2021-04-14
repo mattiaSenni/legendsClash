@@ -5,22 +5,80 @@ using System.Text;
 
 namespace legendsClash
 {
+
     public class Ladro : Personaggio
     {
-        public int percentualeDannoCritico
+        int percentualeDannoCritico;
+        int aumentoDannoCritico;
+        int puntiFerita;
+        public Ladro(string _nome, int _puntiFerita, string sourceImage, int _percentualeDannoCritico, int _aumentoDannoCritico, int _numeroVittorie = 0) : base(_nome, sourceImage, _numeroVittorie)
         {
-            get => default;
+            PercentualeDannoCritico = _percentualeDannoCritico;
+            AumentoDannoCritico = _aumentoDannoCritico;
+            PuntiFerita = _puntiFerita;
+        }
+
+        public int PercentualeDannoCritico
+        {
+            get
+            {
+                return percentualeDannoCritico;
+            }
             set
             {
+                if (value >= 15 || value <= 25)
+                    percentualeDannoCritico = value;
+                else
+                    throw new Exception("percentuale danno critico non valido");
+            }
+        }
+        public int PuntiFerita
+        {
+            get
+            {
+                return puntiFerita;
+            }
+            set
+            {
+                if (value >= 35 || value <= 45)
+                {
+                    PuntiFeritaMassimiCheIlPersonaggioHa = value;
+                    PuntiFeritaDelPersonaggio = value;
+                }
+                else
+                    throw new Exception("punti ferita non validi");
+            }
+        }
+        public int AumentoDannoCritico
+        {
+            get
+            {
+                return aumentoDannoCritico;
+            }
+            set
+            {
+                if (value >= 45 || value <= 60)
+                    aumentoDannoCritico = value;
+                else
+                    throw new Exception("aumento danno critico non valido");
             }
         }
 
-        public int aumentoDannoCritico
+        public override int Attacca(int dado, out bool dannoCritico, out int valoreDannoCritico)
         {
-            get => default;
-            set
+            Random r = new Random();
+            int appoggio = r.Next(1, 101);
+            if (appoggio <= PercentualeDannoCritico)
             {
+                dannoCritico = true;
+                valoreDannoCritico = PercentualeDannoCritico;
             }
+            else
+            {
+                dannoCritico = false;
+                valoreDannoCritico = 0;
+            }
+            return dado;
         }
     }
 }

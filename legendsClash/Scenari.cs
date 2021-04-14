@@ -7,12 +7,14 @@ namespace legendsClash
 {
     public class Scenari
     {
-        public List<Sfondo> Sfondi
+        public List<Sfondo> Sfondi { get; set; }
+        public Scenari()
         {
-            get => default;
-            set
-            {
-            }
+            Sfondi = new List<Sfondo>();
+        }
+        public Scenari(List<Sfondo> s)
+        {
+            Sfondi = s;
         }
     }
 }
