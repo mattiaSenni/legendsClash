@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace legendsClash
 {
+    [XmlRoot(ElementName = "Scenari")]
     public class Scenari
     {
+       [XmlElement(ElementName ="Sfondo")]
         public List<Sfondo> Sfondi { get; set; }
         public Scenari()
         {

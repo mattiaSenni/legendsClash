@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace legendsClash
 {
+
 
     public class Ladro : Personaggio
     {
@@ -16,6 +20,11 @@ namespace legendsClash
             PercentualeDannoCritico = _percentualeDannoCritico;
             AumentoDannoCritico = _aumentoDannoCritico;
             PuntiFerita = _puntiFerita;
+        }
+
+        public Ladro()
+        {
+
         }
 
         public int PercentualeDannoCritico
@@ -32,6 +41,7 @@ namespace legendsClash
                     throw new Exception("percentuale danno critico non valido");
             }
         }
+        [XmlAttribute(attributeName: "Vita")]
         public int PuntiFerita
         {
             get

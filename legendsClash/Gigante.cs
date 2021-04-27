@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace legendsClash
 {
     public class Gigante : Personaggio
     {
+        public Gigante()
+        {
 
+        }
 
         public Gigante(string _nome, int _puntiFerita, string sourceImage, int _numeroVittorie = 0) : base(_nome, sourceImage, _numeroVittorie)
         {
             puntiFerita = _puntiFerita;
         }
-
+        [XmlAttribute(attributeName: "Vita")]
         public int puntiFerita
         {
             get => default;

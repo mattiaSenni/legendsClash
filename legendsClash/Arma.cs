@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace legendsClash
 {
+    [XmlRoot(ElementName = "arma")]
     public class Arma : IEquatable<Arma>
     {
         private const int DMAX_AS = 15;
@@ -26,6 +28,11 @@ namespace legendsClash
         private int _percentualeDannoExtra;
         private string _nome;
         private string _sourceImmagine;
+
+        public Arma()
+        {
+
+        }
 
         public Arma(char classe, string nome, string source)
         {
@@ -53,6 +60,7 @@ namespace legendsClash
             DannoMassimo = -1;
         }
 
+        [XmlAttribute(AttributeName = "classe")]
         public char Classe
         {
             get => _classe;
@@ -66,6 +74,7 @@ namespace legendsClash
             }
         }
 
+        [XmlElement(ElementName = "dannoMassimo")]
         public int DannoMassimo
         {
             get => _dannoMassimo;
@@ -96,6 +105,7 @@ namespace legendsClash
             }
         }
 
+        [XmlElement(ElementName = "vitaAggiunta")]
         public int VitaAggiunta
         {
             get => _vitaAggiunta;
@@ -142,6 +152,7 @@ namespace legendsClash
             }
         }
 
+        [XmlElement(ElementName = "percDannoExtra")]
         public int PercentualeDannoExtra
         {
             get => _percentualeDannoExtra;
@@ -171,6 +182,7 @@ namespace legendsClash
             }
         }
 
+        [XmlAttribute(AttributeName = "nome")]
         public string Nome
         {
             get => _nome;
@@ -184,6 +196,7 @@ namespace legendsClash
             }
         }
 
+        [XmlElement(ElementName = "sourceImmagine")]
         public string SourceImmagine
         {
             get => _sourceImmagine;

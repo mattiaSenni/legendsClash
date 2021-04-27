@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace legendsClash
 {
+    [XmlRoot(ElementName = "Assert")]
     public class Asset
     {
 
@@ -14,28 +16,30 @@ namespace legendsClash
             Personaggi = p;
             Scenari = s;
         }
+        public Asset() { }
 
+        [XmlElement(ElementName = "Personaggo")]
         public List<Personaggio> Personaggi { get; set; }
 
+        [XmlElement(ElementName = "Arma")]
         public List<Arma> Armi { get; set; }
 
+        [XmlElement(ElementName = "Scenario")]
         public Scenari Scenari { get; set; }
 
-        public Battaglia CreaPartitta(Personaggio p1, Personaggio p2, Arma a1, Arma a2, CambioArma cambio, int nRound)
+        public Battaglia CreaPartitta(Personaggio p1, Personaggio p2, Arma a1, Arma a2, CambioArma cambio, int nRound, Sfondo s)
         {
-            return new Battaglia(p1, p2, a1, a2, cambio, nRound);
+            return new Battaglia(p1, p2, a1, a2, cambio, nRound, s);
         }
 
-        public void CreaPersonaggio()
+        public void CreaPersonaggio(Personaggio p)
         {
-            Personaggio personaggio = new Personaggio();
-            Personaggi.Add(personaggio);
+            Personaggi.Add(p);
         }
 
-        public void CreaArma()
+        public void CreaArma(Arma a)
         {
-            Arma arma = new Arma();
-            Armi.Add(arma);
+            Armi.Add(a);
         }
     }
 }

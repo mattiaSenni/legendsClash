@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AnimaCombattente.cs" />
     <Compile Include="Battaglia.cs" />
     <Compile Include="CambioArma.cs" />
     <Compile Include="Cavaliere.cs" />

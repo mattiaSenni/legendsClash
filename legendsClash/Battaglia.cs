@@ -14,6 +14,7 @@ namespace legendsClash
         public Arma ArmaGiocatore2 { get; set; }
 
         public Arma ArmaGiocatore1 { get; set; }
+        public Sfondo Sfondo { get; set; }
 
         private int _numeriRound;
         public int NumeroRound
@@ -76,10 +77,11 @@ namespace legendsClash
             }
         }
 
-        public Battaglia(Personaggio p1, Personaggio p2, Arma a1, Arma a2, CambioArma cambio, int nRound)
+        public Battaglia(Personaggio p1, Personaggio p2, Arma a1, Arma a2, CambioArma cambio, int nRound, Sfondo s)
         {
             try
             {
+                Sfondo = s;
                 Personaggio1 = p1; Personaggio2 = p2;
                 ArmaGiocatore1 = a1; ArmaGiocatore2 = a2;
                 CambioArma = cambio;

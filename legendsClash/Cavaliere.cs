@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace legendsClash
 {
@@ -13,6 +16,11 @@ namespace legendsClash
         {
             PuntiFerita = _puntiFerita;
             PercentualeDannoAggiuntivo = _percentualeDannoAumentato;
+        }
+
+        public Cavaliere()
+        {
+
         }
 
         public override int Attacca(int dado, out bool dannoCritico, out int valoreDannoCritico)
@@ -33,7 +41,7 @@ namespace legendsClash
             }
             return dado + (dado * PercentualeDannoAggiuntivo / 100);
         }
-
+        [XmlAttribute(attributeName: "Vita")]
         public int PuntiFerita
         {
             get

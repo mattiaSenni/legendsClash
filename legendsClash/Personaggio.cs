@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace legendsClash
 {
@@ -20,8 +23,11 @@ namespace legendsClash
             sourceImmagine = sourceImage;
         }
 
+        public Personaggio()
+        {
 
-
+        }
+        [XmlAttribute(attributeName: "Nome")]
         public string nome
         {
             get => default;
@@ -48,7 +54,7 @@ namespace legendsClash
             }
         }
         */
-
+        [XmlAttribute(attributeName: "Vittorie")]
         public int numeroVittoria
         {
             get => default;
