@@ -10,11 +10,14 @@ namespace legendsClash
 {
     public class Cavaliere : Personaggio
     {
+        [XmlIgnore]
+        public const string TIPO = "Cavaliere";
         int puntiFerita;
         int percentualeDannoAggiuntivo;
         public Cavaliere(string _nome, int _puntiFerita, string sourceImage, int _percentualeDannoAumentato, int _numeroVittorie = 0) : base(_nome, sourceImage, _numeroVittorie)
         {
-            PuntiFerita = _puntiFerita;
+            PuntiVita = _puntiFerita;
+            PuntiFeritaMassimiCheIlPersonaggioHa = _puntiFerita;
             PercentualeDannoAggiuntivo = _percentualeDannoAumentato;
         }
 

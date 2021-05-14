@@ -36,7 +36,7 @@ namespace legendsClash
 
         public Arma(char classe, string nome, string source)
         {
-            //nuova arma
+            //nuova arma creata automaticamente
             Classe = classe;
             Nome = nome;
             SourceImmagine = source;
@@ -49,7 +49,7 @@ namespace legendsClash
 
         public Arma(char classe, string nome, string source, int vitaAgg, int percDanno)
         {
-            //arma creata in precedenza
+            //arma creata in precedenza o manualmente
             Classe = classe;
             Nome = nome;
             SourceImmagine = source;
@@ -218,6 +218,15 @@ namespace legendsClash
             }
 
             return false;
+        }
+
+        public override string ToString()
+        {
+            if (Classe == 'S')
+            {
+                return Nome + " di classe " + Classe + ". Vita agg = " + VitaAggiunta + ", Danno extra = " + PercentualeDannoExtra + "%";
+            }
+            return Nome + " di classe " + Classe + ". Vita agg: " + VitaAggiunta;
         }
     }
 }

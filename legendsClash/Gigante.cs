@@ -55,5 +55,9 @@ namespace legendsClash
             return dado;
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + " Gigante";
+        }
     }
 }

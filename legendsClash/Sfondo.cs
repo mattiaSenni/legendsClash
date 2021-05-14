@@ -61,5 +61,10 @@ namespace legendsClash
 
             }
         }
+
+        public override string ToString()
+        {
+            return source;
+        }
     }
 }

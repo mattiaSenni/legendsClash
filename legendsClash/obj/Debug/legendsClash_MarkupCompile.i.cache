@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\matti\Desktop\legendsClash\legendsClash\obj\Debug\
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\
 legendsClash
 none
 false
 DEBUG;TRACE
-C:\Users\matti\Desktop\legendsClash\legendsClash\App.xaml
-11151548125
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\App.xaml
+6-909499405
 
-18-2096823162
+23337635362
 13-1505183044
-MainWindow.xaml;
+AggiungiArma.xaml;AggiungiPersonaggio.xaml;Gioca.xaml;informazioni.xaml;MainWindow.xaml;Visualizza.xaml;
 
-False
+True
 

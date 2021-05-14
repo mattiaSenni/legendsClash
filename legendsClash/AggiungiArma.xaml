@@ -1,0 +1,23 @@
+﻿<Window x:Class="legendsClash.AggiungiArma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:legendsClash"
+        mc:Ignorable="d"
+        Title="AggiungiArma" Height="450" Width="800">
+    <Grid>
+        <Image x:Name="imgSfondo" Source="Img/Backgound.jpeg" Margin="-10,-27,-10,0" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="lblMaxMinPF" Content="Max  n" HorizontalAlignment="Left" Height="25" Margin="302,252,0,0" VerticalAlignment="Top" Width="188" Foreground="White"/>
+        <Image x:Name="imgArma" HorizontalAlignment="Left" Height="263" Margin="531,79,0,0" VerticalAlignment="Top" Width="223"/>
+        <Button x:Name="btnCreaArma" Content="Crea arma" HorizontalAlignment="Left" Margin="302,336,0,0" VerticalAlignment="Top" Width="188" Height="60" FontSize="20" Click="btnCreaArma_Click"/>
+        <Button x:Name="btnRandom" Content="Random" HorizontalAlignment="Left" Margin="302,282,0,0" VerticalAlignment="Top" Width="188" Height="34" FontSize="20" Click="btnRandom_Click"/>
+        <TextBox x:Name="txtPFAgg" HorizontalAlignment="Left" Height="36" Margin="302,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="20"/>
+        <TextBox x:Name="txtNome" HorizontalAlignment="Left" Height="36" Margin="302,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="20"/>
+        <Label Content="Crea Arma" HorizontalAlignment="Left" Margin="332,22,0,0" VerticalAlignment="Top" Height="44" Width="128" FontSize="25" Foreground="White"/>
+        <Label Content="Punti ferita aggiuntivi" HorizontalAlignment="Left" Margin="44,216,0,0" VerticalAlignment="Top" Height="36" Width="204" FontSize="20" Foreground="White"/>
+        <ComboBox x:Name="comboClasse" HorizontalAlignment="Left" Margin="302,147,0,0" VerticalAlignment="Top" Width="188" Height="36" FontSize="20" SelectionChanged="comboClasse_SelectionChanged"/>
+        <Label Content="Nome" HorizontalAlignment="Left" Margin="182,79,0,0" VerticalAlignment="Top" Height="36" Width="66" FontSize="20" Foreground="White" />
+        <Label Content="Classe" HorizontalAlignment="Left" Margin="182,147,0,0" VerticalAlignment="Top" Height="36" Width="66" FontSize="20" RenderTransformOrigin="0.528,1.782" Foreground="White"/>
+    </Grid>
+</Window>

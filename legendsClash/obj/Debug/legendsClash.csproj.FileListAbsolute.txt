@@ -1,0 +1,17 @@
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\bin\Debug\legendsClash.exe.config
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\bin\Debug\legendsClash.exe
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\bin\Debug\legendsClash.pdb
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.csprojAssemblyReference.cache
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\Gioca.g.cs
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\MainWindow.g.cs
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\App.g.cs
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash_MarkupCompile.cache
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash_MarkupCompile.lref
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\Gioca.baml
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\MainWindow.baml
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.g.resources
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.Properties.Resources.resources
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.csproj.GenerateResource.cache
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.csproj.CoreCompileInputs.cache
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.exe
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.pdb

@@ -11,21 +11,21 @@
   <Class Name="legendsClash.Ladro">
     <Position X="5.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAgAAAAAAAABACAAAQAAAAEAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>CAAAAgAAAAAAAABACAAAQEAAAEAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Ladro.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="legendsClash.Cavaliere">
     <Position X="7.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAIAAAAAAAABAAAAAQAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAIAAAAAAAABAAAAAQEAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Cavaliere.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="legendsClash.Gigante">
     <Position X="9.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAAAAAQEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Gigante.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -39,7 +39,7 @@
         <Point X="12.083" Y="1.073" Type="JumpStart" />
         <Point X="11.917" Y="1.073" Type="JumpEnd" />
         <Point X="8" Y="1.073" />
-        <Point X="8" Y="2.152" />
+        <Point X="8" Y="2.171" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Personaggio1" Type="legendsClash.Personaggio" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
@@ -49,8 +49,8 @@
         <Point X="11.333" Y="4.419" Type="JumpStart" />
         <Point X="11.167" Y="4.419" Type="JumpEnd" />
         <Point X="10.972" Y="4.419" />
-        <Point X="10.972" Y="2.005" />
-        <Point X="9.5" Y="2.005" />
+        <Point X="10.972" Y="2.017" />
+        <Point X="9.5" Y="2.017" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="ArmaGiocatore2" Type="legendsClash.Arma" FixedFromPoint="true" FixedToPoint="true">
@@ -87,10 +87,10 @@
       <Path>
         <Point X="13.25" Y="6.676" />
         <Point X="11.25" Y="6.676" />
-        <Point X="11.25" Y="4.046" />
-        <Point X="11.055" Y="4.046" Type="JumpStart" />
-        <Point X="10.889" Y="4.046" Type="JumpEnd" />
-        <Point X="9.5" Y="4.046" />
+        <Point X="11.25" Y="4.153" />
+        <Point X="11.055" Y="4.153" Type="JumpStart" />
+        <Point X="10.889" Y="4.153" Type="JumpEnd" />
+        <Point X="9.5" Y="4.153" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -142,7 +142,7 @@
   <Class Name="legendsClash.Personaggio">
     <Position X="8" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAgAAABAgAACAQAAQEABAACAAAAAAAGAAAg=</HashCode>
+      <HashCode>AQAAAAAAAAgAAABAgAACAUAAQEABAACAAAAAAAGAAAg=</HashCode>
       <FileName>Personaggio.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -154,8 +154,8 @@
         <Point X="4.875" Y="2.429" />
         <Point X="4.875" Y="3.438" />
         <Point X="7.906" Y="3.438" />
-        <Point X="7.906" Y="3.699" />
-        <Point X="8" Y="3.699" />
+        <Point X="7.906" Y="3.79" />
+        <Point X="8" Y="3.79" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="Armi" Type="legendsClash.Arma" FixedFromPoint="true" FixedToPoint="true">
@@ -179,9 +179,9 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="legendsClash.AnimaCombattente">
-    <Position X="5.75" Y="7.75" Width="1.5" />
+    <Position X="4.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAIAABAAAAAAAAAAAAAAAAAgAQAAgAAAAAAAA=</HashCode>
       <FileName>AnimaCombattente.cs</FileName>
     </TypeIdentifier>
   </Class>

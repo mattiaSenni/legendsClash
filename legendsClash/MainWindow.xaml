@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="sfondo.jpeg" RenderTransformOrigin="0.803,0.465" Stretch="Fill"/>
+        <Button x:Name="btnInfo" Content="Informazioni" HorizontalAlignment="Left" Margin="588,325,0,0" VerticalAlignment="Top" Width="177" Height="52" FontSize="24" Foreground="Black" Background="#FF4B2E4F" FontFamily="MingLiU-ExtB" Click="btnInfo_Click"/>
+        <Label x:Name="lblTitolo" Content="Legend Clash" Margin="212,33,210,321" FontSize="48" FontFamily="Arial Black" Foreground="White" Background="{x:Null}"/>
+        <Button x:Name="btnIniziaBattaglia" Content="Inizia Battaglia" HorizontalAlignment="Left" Margin="252,103,0,0" VerticalAlignment="Top" Width="279" Height="70" FontSize="48" Background="{x:Null}" Foreground="#FF020202" BorderBrush="White" FontFamily="Gabriola" Click="btnIniziaBattaglia_Click"/>
+        <Button x:Name="btnVisualizza" Content="Visualizza personaggi e armi" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="287" Height="52" FontSize="22" Foreground="Black" Background="#FFD4D4D4" FontFamily="Georgia" Click="btnVisualizza_Click"/>
+        <Button x:Name="btnAggiungiArma" Content="Aggiungi arma" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="225" Height="46" FontSize="22" Background="#FFB6B6B6" FontFamily="Georgia" Click="btnAggiungiArma_Click"/>
+        <Button x:Name="btnAggiungiPersonaggio" Content="Aggiungi personaggio" HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" Width="225" Height="46" FontSize="22" Background="#FFB6B6B6" FontFamily="Georgia" Click="btnAggiungiPersonaggio_Click"/>
+
     </Grid>
 </Window>

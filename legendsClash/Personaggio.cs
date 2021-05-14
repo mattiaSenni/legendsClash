@@ -74,7 +74,7 @@ namespace legendsClash
             get => default;
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (!string.IsNullOrWhiteSpace(value))
                     SourceImmaginePersonaggio = value;
                 else
                     throw new Exception("source immagine non valido");
@@ -123,6 +123,11 @@ namespace legendsClash
                 return true;
             else
                 return false;
+        }
+
+        public override string ToString()
+        {
+            return nome + " " + numeroVittoria;
         }
     }
 }

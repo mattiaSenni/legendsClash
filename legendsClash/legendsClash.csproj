@@ -55,15 +55,46 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AggiungiArma.xaml.cs">
+      <DependentUpon>AggiungiArma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AggiungiPersonaggio.xaml.cs">
+      <DependentUpon>AggiungiPersonaggio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AnimaCombattente.cs" />
     <Compile Include="Battaglia.cs" />
     <Compile Include="CambioArma.cs" />
     <Compile Include="Cavaliere.cs" />
     <Compile Include="Gigante.cs" />
+    <Compile Include="Gioca.xaml.cs">
+      <DependentUpon>Gioca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="informazioni.xaml.cs">
+      <DependentUpon>informazioni.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ladro.cs" />
     <Compile Include="LimitiPersonaggi.cs" />
     <Compile Include="Scenari.cs" />
     <Compile Include="Sfondo.cs" />
+    <Compile Include="Visualizza.xaml.cs">
+      <DependentUpon>Visualizza.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AggiungiArma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AggiungiPersonaggio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Gioca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="informazioni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,6 +109,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Visualizza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Personaggio.cs" />
@@ -106,6 +141,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\sfondo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\popup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\vs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\dannoCritico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ladro.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

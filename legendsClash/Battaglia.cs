@@ -15,6 +15,8 @@ namespace legendsClash
 
         public Arma ArmaGiocatore1 { get; set; }
         public Sfondo Sfondo { get; set; }
+        public string Vincitore { get; set; }
+        public string Perdente { get; set; }
 
         private int _numeriRound;
         public int NumeroRound
@@ -124,11 +126,11 @@ namespace legendsClash
                 //il personaggio 1 attacca
                 int dado = dado1 - dado2;
                 int danno = Personaggio1.Attacca(dado, out dannoCritico, out percentualeDannoCritico);
-                danno = danno > ArmaGiocatore1.dannoMassimo ? ArmaGiocatore1.dannoMassimo : danno;
-                if(ArmaGiocatore1.classe == 'S')
+                danno = danno > ArmaGiocatore1.DannoMassimo ? ArmaGiocatore1.DannoMassimo : danno;
+                if(ArmaGiocatore1.Classe == 'S')
                 {
                     //conta danno extra aggiuntivo
-                    int dannoExtra = danno / 100 * ArmaGiocatore1.percentualeDannoExtra;
+                    int dannoExtra = danno / 100 * ArmaGiocatore1.PercentualeDannoExtra;
                     //il danno massimo è 20
                     danno = danno + dannoExtra > 20 ? 20 : danno + dannoExtra;
                 }
@@ -144,6 +146,8 @@ namespace legendsClash
                 }
                 else
                 {
+                    Vincitore = "giocatore 1";
+                    Perdente = "giocatore 2";
                     Cronologia.Add(Personaggio1); //aggiorno la cronologia dei vincitori
                     return Personaggio1; //ritorno il vincitore
                 }
@@ -153,11 +157,11 @@ namespace legendsClash
                 //il personaggio 2 attacca
                 int dado = dado2 - dado2;
                 int danno = Personaggio2.Attacca(dado, out dannoCritico, out percentualeDannoCritico);
-                danno = danno > ArmaGiocatore2.dannoMassimo ? ArmaGiocatore2.dannoMassimo : danno;
-                if (ArmaGiocatore2.classe == 'S')
+                danno = danno > ArmaGiocatore2.DannoMassimo ? ArmaGiocatore2.DannoMassimo : danno;
+                if (ArmaGiocatore2.Classe == 'S')
                 {
                     //conta danno extra aggiuntivo
-                    int dannoExtra = danno / 100 * ArmaGiocatore2.percentualeDannoExtra;
+                    int dannoExtra = danno / 100 * ArmaGiocatore2.PercentualeDannoExtra;
                     //il danno massimo è 20
                     danno = danno + dannoExtra > 20 ? 20 : danno + dannoExtra;
                 }
@@ -173,6 +177,8 @@ namespace legendsClash
                 }
                 else
                 {
+                    Vincitore = "giocatore 2";
+                    Perdente = "giocatore 1";
                     Cronologia.Add(Personaggio2); //aggiorno la cronologia dei vincitori
                     return Personaggio2; //ritorno il vincitore
                 }
@@ -183,6 +189,14 @@ namespace legendsClash
                 return null; //lo scontro va avanti come se non fosse successo niente
             }
 
+        }
+
+        public void NewRound()
+        {
+            //ristoro i giocatori
+            Personaggio1.ristora(true);
+            Personaggio2.ristora(true);
+            RoundCorrente++;
         }
 
         
