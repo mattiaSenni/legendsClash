@@ -30,7 +30,7 @@ namespace legendsClash
         private const int VAGGMAX_B = 10;
         private const int VAGGMAX_C = 5;
 
-        public AggiungiArma()
+        public AggiungiArma(Asset asset)
         {
             InitializeComponent();
             this.comboClasse.Items.Add('S');
@@ -38,7 +38,9 @@ namespace legendsClash
             this.comboClasse.Items.Add('B');
             this.comboClasse.Items.Add('C');
             this.comboClasse.Items.Add('D');
+            _asset = asset;
         }
+        Asset _asset;
 
         private void btnCreaArma_Click(object sender, RoutedEventArgs e)
         {
@@ -51,9 +53,10 @@ namespace legendsClash
                 int percDannoAgg = -1; //il valore verrà assegnato nella classe
 
                 Arma a = new Arma(classe, nome, source, pfAgg, percDannoAgg);
-
+                _asset.Armi.Add(a);
+                //TODO : salva in xml
                 this.Hide();
-                MainWindow mw = new MainWindow(a);
+                MainWindow mw = new MainWindow(_asset);
             }
             catch (Exception ex)
             {

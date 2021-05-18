@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="AggiungiArma" Height="450" Width="800">
     <Grid>
-        <Image x:Name="imgSfondo" Source="Img/Backgound.jpeg" Margin="-10,-27,-10,0" RenderTransformOrigin="0.5,0.5"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="img/sfondo.jpg"/>
+        </Grid.Background>
         <Label x:Name="lblMaxMinPF" Content="Max  n" HorizontalAlignment="Left" Height="25" Margin="302,252,0,0" VerticalAlignment="Top" Width="188" Foreground="White"/>
         <Image x:Name="imgArma" HorizontalAlignment="Left" Height="263" Margin="531,79,0,0" VerticalAlignment="Top" Width="223"/>
         <Button x:Name="btnCreaArma" Content="Crea arma" HorizontalAlignment="Left" Margin="302,336,0,0" VerticalAlignment="Top" Width="188" Height="60" FontSize="20" Click="btnCreaArma_Click"/>

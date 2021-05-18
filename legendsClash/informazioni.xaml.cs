@@ -19,14 +19,18 @@ namespace legendsClash
     /// </summary>
     public partial class informazioni : Window
     {
-        public informazioni()
+        public informazioni(Asset asset)
         {
             InitializeComponent();
+            _asset = asset;
         }
+        Asset _asset;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //TODO : porta alla home
+            MainWindow m = new MainWindow(_asset);
+            m.Show();
+            this.Close();
         }
     }
 }

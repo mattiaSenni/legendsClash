@@ -17,18 +17,21 @@ namespace legendsClash
 
         public Gigante(string _nome, int _puntiFerita, string sourceImage, int _numeroVittorie = 0) : base(_nome, sourceImage, _numeroVittorie)
         {
-            puntiFerita = _puntiFerita;
+            PuntiFerita = _puntiFerita;
         }
         [XmlAttribute(attributeName: "Vita")]
-        public int puntiFerita
+        public override int PuntiFerita
         {
-            get => default;
+            get
+            {
+                return _puntiFeritaDelPersonaggio;
+            }
             set
             {
                 if (value >= 70 || value <= 85)
                 {
-                    PuntiFeritaMassimiCheIlPersonaggioHa = value;
-                    PuntiFeritaDelPersonaggio = value;
+                    _puntiFeritaMassimiCheIlPersonaggioHa = value;
+                    _puntiFeritaDelPersonaggio = value;
                 }
                 else
                 {
@@ -55,9 +58,5 @@ namespace legendsClash
             return dado;
         }
 
-        public override string ToString()
-        {
-            return base.ToString() + " Gigante";
-        }
     }
 }

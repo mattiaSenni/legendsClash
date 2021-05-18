@@ -27,7 +27,7 @@ namespace legendsClash
             InitializeComponent();
             //popolo tutte le listview
             PopolaList();
-
+            PopolaComboBox();
         }
 
         Asset _asset;
@@ -40,7 +40,7 @@ namespace legendsClash
 
         private void PopolaList()
         {
-            MessageBox.Show(_asset.Personaggi.ToString());
+            //MessageBox.Show(_asset.Personaggi.ToString());
             lstPersonaggi1.ItemsSource = _asset.Personaggi;
             lstPersonaggi2.ItemsSource = _asset.Personaggi;
             lstArma1.ItemsSource = _asset.Armi;
@@ -138,16 +138,18 @@ namespace legendsClash
             //devo prendere tutti i dati
             try
             {
+                
                 cambio = (CambioArma)cmbCambioArma.SelectedIndex;
                 nRound = (int)cmbNumeroRound.SelectedItem;
                 s = (Sfondo)cmbScenario.SelectedItem;
+                _battaglia = new Battaglia(p1, p2, a1, a2, cambio, nRound, s);
                 lblNome1.Content = _battaglia.Personaggio1.nome;
                 lblNome2.Content = _battaglia.Personaggio2.nome;
                 lblDannoArma1.Content = _battaglia.ArmaGiocatore1.DannoMassimo;
                 lblDannoArma2.Content = _battaglia.ArmaGiocatore2.DannoMassimo;
                 AggiornaInterfacciaCombattimento();
                 //inizializzo la battaglia e gli elementi grafici
-                _battaglia = new Battaglia(p1, p2, a1, a2, cambio, nRound, s);
+                
                 //inserisco i valori nell'interfaccia
                 
                 imgG1.Source = CambiaImg(_battaglia.Personaggio1.sourceImmagine);
@@ -162,8 +164,8 @@ namespace legendsClash
 
         private void AggiornaInterfacciaCombattimento()
         {   
-            lblPuntiVita1.Content = _battaglia.Personaggio1.PuntiVita;
-            lblPuntiVita2.Content = _battaglia.Personaggio2.PuntiVita;
+            lblPuntiVita1.Content = _battaglia.Personaggio1.PuntiFerita;
+            lblPuntiVita2.Content = _battaglia.Personaggio2.PuntiFerita;
         }
         //---------------------------------------------------------------------------------------------------------
         //Sezione per la battaglia

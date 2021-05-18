@@ -11,8 +11,8 @@ namespace legendsClash
     public abstract class Personaggio : IEquatable<Personaggio>
     {
         string Nome;
-        protected int PuntiFeritaMassimiCheIlPersonaggioHa;
-        protected int PuntiFeritaDelPersonaggio;
+        protected int _puntiFeritaMassimiCheIlPersonaggioHa;
+        protected int _puntiFeritaDelPersonaggio;
         int NumeroVittorie;
         string SourceImmaginePersonaggio;
 
@@ -30,7 +30,10 @@ namespace legendsClash
         [XmlAttribute(attributeName: "Nome")]
         public string nome
         {
-            get => default;
+            get
+            {
+                return Nome;
+            }
             set
             {
                 if (!string.IsNullOrEmpty(value))
@@ -40,24 +43,27 @@ namespace legendsClash
             }
         }
 
-        /*
-        public virtual int puntiFerita
+
+        public virtual int PuntiFerita
         {
             get => default;
             set
             {
                 if (value >= 35 || value <= 85)
                 {
-                    PuntiFeritaMassimiCheIlPersonaggioHa = value;
-                    PuntiFeritaDelPersonaggio = value;
+                    _puntiFeritaMassimiCheIlPersonaggioHa = value;
+                    _puntiFeritaDelPersonaggio = value;
                 }
             }
         }
-        */
+
         [XmlAttribute(attributeName: "Vittorie")]
         public int numeroVittoria
         {
-            get => default;
+            get
+            {
+                return NumeroVittorie;
+            }
             set
             {
                 if (value >= 0)
@@ -71,10 +77,13 @@ namespace legendsClash
 
         public string sourceImmagine
         {
-            get => default;
+            get
+            {
+                return SourceImmaginePersonaggio;
+            }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (!string.IsNullOrEmpty(value))
                     SourceImmaginePersonaggio = value;
                 else
                     throw new Exception("source immagine non valido");
@@ -90,11 +99,11 @@ namespace legendsClash
         {
             if (ristoraTuttaLaVita)
             {
-                PuntiFeritaDelPersonaggio = PuntiFeritaMassimiCheIlPersonaggioHa;
+                _puntiFeritaDelPersonaggio = _puntiFeritaMassimiCheIlPersonaggioHa;
             }
             else
             {
-                PuntiFeritaDelPersonaggio += PuntiFeritaMassimiCheIlPersonaggioHa * percentualeDiVitaDaRecuperare / 100;
+                _puntiFeritaDelPersonaggio += _puntiFeritaMassimiCheIlPersonaggioHa * percentualeDiVitaDaRecuperare / 100;
             }
         }
 
@@ -106,8 +115,8 @@ namespace legendsClash
 
         public bool SubisciDanno(int dannoSubito)
         {
-            PuntiFeritaDelPersonaggio -= dannoSubito;
-            if (PuntiFeritaDelPersonaggio <= 0)
+            _puntiFeritaDelPersonaggio -= dannoSubito;
+            if (_puntiFeritaDelPersonaggio <= 0)
             {
                 return false;
             }
@@ -123,11 +132,6 @@ namespace legendsClash
                 return true;
             else
                 return false;
-        }
-
-        public override string ToString()
-        {
-            return nome + " " + numeroVittoria;
         }
     }
 }

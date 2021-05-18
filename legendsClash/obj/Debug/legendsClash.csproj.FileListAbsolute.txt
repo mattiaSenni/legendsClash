@@ -15,3 +15,11 @@ C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.cs
 C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.csproj.CoreCompileInputs.cache
 C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.exe
 C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\legendsClash.pdb
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\AggiungiArma.g.cs
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\AggiungiPersonaggio.g.cs
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\informazioni.g.cs
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\Visualizza.g.cs
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\AggiungiArma.baml
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\AggiungiPersonaggio.baml
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\informazioni.baml
+C:\Users\MattiaSenni\Desktop\legendsClash\legendsClash\obj\Debug\Visualizza.baml

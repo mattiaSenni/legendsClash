@@ -51,14 +51,14 @@ namespace legendsClash
         private void btnAggPersonaggio_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            AggiungiPersonaggio aggpers = new AggiungiPersonaggio();
+            AggiungiPersonaggio aggpers = new AggiungiPersonaggio(asset);
             aggpers.Show();
         }
 
         private void btnAggArma_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            AggiungiArma aggar = new AggiungiArma();
+            AggiungiArma aggar = new AggiungiArma(asset);
             aggar.Show();
         }
     }

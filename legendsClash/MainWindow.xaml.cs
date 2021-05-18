@@ -28,31 +28,53 @@ namespace legendsClash
             Arma a1 = new Arma('D', "super mega arma", "img/vs.png");
             _asset = new Asset(new List<Arma>() { a1 }, new List<Personaggio>() { p1, p2 }, new Scenari(new List<Sfondo>() { new Sfondo("img/sfondo.png", 0) }));
         }
+
+        public MainWindow(Asset asset)
+        {
+            InitializeComponent();
+            _asset = asset;
+        }
         Asset _asset;
 
         private void btnIniziaBattaglia_Click(object sender, RoutedEventArgs e)
         {
-            //TO DO
+            Gioca g = new Gioca(_asset);
+            g.Show();
+            this.Close();
         }
 
         private void btnVisualizza_Click(object sender, RoutedEventArgs e)
         {
-            //TO DO
+            Visualizza v = new Visualizza(_asset);
+            v.Show();
+            this.Close();
         }
 
         private void btnAggiungiArma_Click(object sender, RoutedEventArgs e)
         {
-            //TO DO
+            AggiungiArma a = new AggiungiArma(_asset);
+            a.Show();
+            this.Close();
         }
 
         private void btnAggiungiPersonaggio_Click(object sender, RoutedEventArgs e)
         {
-            //TO DO
+            AggiungiPersonaggio a = new AggiungiPersonaggio(_asset);
+            a.Show();
+            this.Close();
         }
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            //TO DO
+            informazioni a = new informazioni(_asset);
+            a.Show();
+            this.Close();
+        }
+
+        private void btnGioca_Click(object sender, RoutedEventArgs e)
+        {
+            Gioca g = new Gioca(_asset);
+            g.Show(); this.Close();
         }
     }
 }

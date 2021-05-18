@@ -41,7 +41,7 @@ namespace legendsClash
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                     throw new Exception("round corrente non valido");
                 _roundCorrente = value;
             }
@@ -58,7 +58,7 @@ namespace legendsClash
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                     throw new Exception("punteggio del giocatore 1 non valido");
                 _punteggioG1 = value;
             }
@@ -73,7 +73,7 @@ namespace legendsClash
             }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                     throw new Exception("punteggio del giocatore 2 non valido");
                 _punteggioG2 = value;
             }

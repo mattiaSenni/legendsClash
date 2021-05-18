@@ -10,14 +10,11 @@ namespace legendsClash
 {
     public class Cavaliere : Personaggio
     {
-        [XmlIgnore]
-        public const string TIPO = "Cavaliere";
         int puntiFerita;
         int percentualeDannoAggiuntivo;
         public Cavaliere(string _nome, int _puntiFerita, string sourceImage, int _percentualeDannoAumentato, int _numeroVittorie = 0) : base(_nome, sourceImage, _numeroVittorie)
         {
-            PuntiVita = _puntiFerita;
-            PuntiFeritaMassimiCheIlPersonaggioHa = _puntiFerita;
+            PuntiFerita = _puntiFerita;
             PercentualeDannoAggiuntivo = _percentualeDannoAumentato;
         }
 
@@ -45,7 +42,7 @@ namespace legendsClash
             return dado + (dado * PercentualeDannoAggiuntivo / 100);
         }
         [XmlAttribute(attributeName: "Vita")]
-        public int PuntiFerita
+        public override int PuntiFerita
         {
             get
             {
@@ -55,8 +52,8 @@ namespace legendsClash
             {
                 if (value >= 45 || value <= 55)
                 {
-                    PuntiFeritaMassimiCheIlPersonaggioHa = value;
-                    PuntiFeritaDelPersonaggio = value;
+                    _puntiFeritaMassimiCheIlPersonaggioHa = value;
+                    _puntiFeritaDelPersonaggio = value;
                 }
                 else
                     throw new Exception("punti ferita non validi");

@@ -10,10 +10,12 @@ namespace legendsClash
     /// </summary>
     public partial class AggiungiPersonaggio : Window
     {
-        public AggiungiPersonaggio()
+        public AggiungiPersonaggio(Asset asset)
         {
-
+            InitializeComponent();
+            _asset = asset;
         }
+        Asset _asset;
 
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
@@ -149,18 +151,21 @@ namespace legendsClash
             //da aggiustare il source delle immagini
             try
             {
+                Personaggio nuovo;
                 if (cmb_Classi.SelectedIndex == 0)
                 {
-                    Gigante nuovo = new Gigante(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\gigante.png");
+                    nuovo = new Gigante(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\gigante.png");
                 }
                 else if (cmb_Classi.SelectedIndex == 1)
                 {
-                    Ladro nuovo = new Ladro(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\assassino.png", Convert.ToInt32(txt_percentualeDannoCriticoLadro.Text), Convert.ToInt32(txt_aumentoDannoCritico.Text));
+                    nuovo = new Ladro(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\assassino.png", Convert.ToInt32(txt_percentualeDannoCriticoLadro.Text), Convert.ToInt32(txt_aumentoDannoCritico.Text));
                 }
                 else
                 {
-                    Cavaliere nuovo = new Cavaliere(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\cavaliere.jpg", Convert.ToInt32(txt_percentualeDannoAumentatoCavaliere.Text));
+                    nuovo = new Cavaliere(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\cavaliere.jpg", Convert.ToInt32(txt_percentualeDannoAumentatoCavaliere.Text));
                 }
+                _asset.Personaggi.Add(nuovo);
+                //TODO salva in memoria
             }
             catch (Exception ex)
             {
