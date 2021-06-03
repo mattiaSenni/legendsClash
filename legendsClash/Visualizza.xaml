@@ -6,14 +6,19 @@
         xmlns:local="clr-namespace:legendsClash"
         mc:Ignorable="d"
         Title="VisualizzaArma" Height="450" Width="800">
+
     <Grid Margin="0,1,0,-1">
-        <Image x:Name="imgSfondo" Source="Img/Backgound.jpeg" Margin="-10,-27,-10,0" RenderTransformOrigin="0.5,0.5"/>
-        <Label Content="Visualizza Arma" HorizontalAlignment="Left" Margin="304,0,0,0" VerticalAlignment="Top" Width="189" FontSize="25" Foreground="White"/>
-        <ListBox x:Name="lstPersonaggi" HorizontalAlignment="Left" Height="258" Margin="10,75,0,0" VerticalAlignment="Top" Width="295" FontSize="20"/>
-        <ListBox x:Name="lstArmi" HorizontalAlignment="Left" Height="258" Margin="487,75,0,0" VerticalAlignment="Top" Width="295" FontSize="20" Background="White"/>
-        <Button x:Name="btnAggPersonaggio" Content="Aggiungi personaggio" HorizontalAlignment="Left" Height="60" Margin="10,338,0,0" VerticalAlignment="Top" Width="295" FontSize="20" Click="btnAggPersonaggio_Click"/>
-        <Button x:Name="btnAggArma" Content="Aggiungi Arma" HorizontalAlignment="Left" Height="60" Margin="487,338,0,0" VerticalAlignment="Top" Width="295" FontSize="20" Click="btnAggArma_Click"/>
-        <Label Content="Personaggi" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="289" Height="38" Foreground="White"  FontSize="20"/>
-        <Label Content="Armi" HorizontalAlignment="Left" Margin="487,37,0,0" VerticalAlignment="Top" Width="289" Height="38" Foreground="White"  FontSize="20"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="img/sfondo.jpeg"/>
+        </Grid.Background>
+
+        <Label Content="Visualizza Armi e Personaggi" HorizontalAlignment="Left" Margin="234,0,0,0" VerticalAlignment="Top" Width="327" FontSize="25" Foreground="White"/>
+        <ListBox x:Name="lstPersonaggi" HorizontalAlignment="Left" Height="258" Margin="10,75,0,0" VerticalAlignment="Top" Width="353" FontSize="20" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="lstArmi" HorizontalAlignment="Left" Height="258" Margin="429,75,0,0" VerticalAlignment="Top" Width="353" FontSize="20" Background="White"/>
+        <Button x:Name="btnAggPersonaggio" Content="Aggiungi personaggio" HorizontalAlignment="Left" Height="60" Margin="10,338,0,0" VerticalAlignment="Top" Width="353" FontSize="20" Click="btnAggPersonaggio_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnAggArma" Content="Aggiungi Arma" HorizontalAlignment="Left" Height="60" Margin="429,338,0,0" VerticalAlignment="Top" Width="353" FontSize="20" Click="btnAggArma_Click"/>
+        <Label Content="Personaggi" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="289" Height="38" Foreground="White"  FontSize="20" Grid.ColumnSpan="2"/>
+        <Label Content="Armi" HorizontalAlignment="Left" Margin="727,37,0,0" VerticalAlignment="Top" Width="55" Height="38" Foreground="White"  FontSize="20"/>
+        <Button x:Name="btn_home" Content="&lt; Home" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="97" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFCFCFC" Click="btn_home_Click" Margin="10,0,0,378" FontSize="25" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

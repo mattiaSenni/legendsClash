@@ -8,7 +8,7 @@
         Title="AggiungiArma" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="img/sfondo.jpg"/>
+            <ImageBrush ImageSource="img/sfondo.jpeg"/>
         </Grid.Background>
         <Label x:Name="lblMaxMinPF" Content="Max  n" HorizontalAlignment="Left" Height="25" Margin="302,252,0,0" VerticalAlignment="Top" Width="188" Foreground="White"/>
         <Image x:Name="imgArma" HorizontalAlignment="Left" Height="263" Margin="531,79,0,0" VerticalAlignment="Top" Width="223"/>
@@ -21,5 +21,6 @@
         <ComboBox x:Name="comboClasse" HorizontalAlignment="Left" Margin="302,147,0,0" VerticalAlignment="Top" Width="188" Height="36" FontSize="20" SelectionChanged="comboClasse_SelectionChanged"/>
         <Label Content="Nome" HorizontalAlignment="Left" Margin="182,79,0,0" VerticalAlignment="Top" Height="36" Width="66" FontSize="20" Foreground="White" />
         <Label Content="Classe" HorizontalAlignment="Left" Margin="182,147,0,0" VerticalAlignment="Top" Height="36" Width="66" FontSize="20" RenderTransformOrigin="0.528,1.782" Foreground="White"/>
+        <Button x:Name="btn_home" Content="&lt; Home" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="111" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFFCFCFC" Click="btn_home_Click" Margin="10,0,0,378" FontSize="27"/>
     </Grid>
 </Window>

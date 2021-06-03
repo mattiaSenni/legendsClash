@@ -8,18 +8,18 @@ using System.Xml;
 
 namespace legendsClash
 {
-
-
+    [XmlRoot(ElementName = "Ladro")]
     public class Ladro : Personaggio
     {
-        int percentualeDannoCritico;
-        int aumentoDannoCritico;
-        int puntiFerita;
-        public Ladro(string _nome, int _puntiFerita, string sourceImage, int _percentualeDannoCritico, int _aumentoDannoCritico, int _numeroVittorie = 0) : base(_nome, sourceImage, _numeroVittorie)
+        int _percentualeDannoCritico;
+        int _aumentoDannoCritico;
+
+        public Ladro(string nome, int puntiFerita, string sourceImage, int percentualeDannoCritico, int aumentoDannoCritico, int numeroVittorie = 0) : base(nome, sourceImage, numeroVittorie)
         {
-            PercentualeDannoCritico = _percentualeDannoCritico;
-            AumentoDannoCritico = _aumentoDannoCritico;
-            PuntiFerita = _puntiFerita;
+            PercentualeDannoCritico = percentualeDannoCritico;
+            AumentoDannoCritico = aumentoDannoCritico;
+            PuntiFerita = puntiFerita;
+            _puntiFeritaMassimi = puntiFerita;
         }
 
         public Ladro()
@@ -27,48 +27,51 @@ namespace legendsClash
 
         }
 
+        [XmlElement(ElementName = "PercentualeDannoCritico")]
         public int PercentualeDannoCritico
         {
             get
             {
-                return percentualeDannoCritico;
+                return _percentualeDannoCritico;
             }
             set
             {
                 if (value >= 15 || value <= 25)
-                    percentualeDannoCritico = value;
+                    _percentualeDannoCritico = value;
                 else
                     throw new Exception("percentuale danno critico non valido");
             }
         }
+
         [XmlAttribute(attributeName: "Vita")]
-        public override int PuntiFerita
+        public new int PuntiFerita
         {
             get
             {
-                return puntiFerita;
+                return _puntiFerita;
             }
             set
             {
                 if (value >= 35 || value <= 45)
                 {
-                    _puntiFeritaMassimiCheIlPersonaggioHa = value;
-                    _puntiFeritaDelPersonaggio = value;
+                    _puntiFerita = value;
                 }
                 else
                     throw new Exception("punti ferita non validi");
             }
         }
+
+        [XmlElement(ElementName = "AumentoDannoCritico")]
         public int AumentoDannoCritico
         {
             get
             {
-                return aumentoDannoCritico;
+                return _aumentoDannoCritico;
             }
             set
             {
                 if (value >= 45 || value <= 60)
-                    aumentoDannoCritico = value;
+                    _aumentoDannoCritico = value;
                 else
                     throw new Exception("aumento danno critico non valido");
             }
@@ -89,6 +92,11 @@ namespace legendsClash
                 valoreDannoCritico = 0;
             }
             return dado;
+        }
+
+        public override string ToString()
+        {
+            return "Ladro " + Nome + " con " + NumeroVittorie + " vitorie";
         }
     }
 }

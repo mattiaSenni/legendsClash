@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace legendsClash
 {    
@@ -102,7 +103,7 @@ namespace legendsClash
         /// attacco
         /// </summary>
         /// <returns>il personaggio se c'è un vincitore, null se non c'è nessun vincitore</returns>
-        public Personaggio Attacco(out int dado1, out int dado2, out bool dannoCritico, out int percentualeDannoCritico)
+        public Personaggio Attacco(out int dado, out int dado1, out int dado2, out bool dannoCritico, out int percentualeDannoCritico)
         {
             //passo in out i valori dei dadi ed un eventuale danno critico usando anche i bool
             //passo ad attacca dei personaggi il valore del dado, e lui mi dici (con gli out) se c'è danno critico, e se c'è quanto vale
@@ -111,7 +112,7 @@ namespace legendsClash
             percentualeDannoCritico = 0;
 
             Random r1 = new Random();
-            dado1 = 0; dado2 = 0;
+            dado = 0; dado1 = 0; dado2 = 0;
             for(int i = 0; i < 6; i++)
             {
                 int val= r1.Next(1, 7);
@@ -119,12 +120,14 @@ namespace legendsClash
                     dado1 += val;
                 else
                     dado2 += val;
+                
+                Gioca g = new Gioca(i, val);
             }
 
             if(dado1 > dado2)
             {
                 //il personaggio 1 attacca
-                int dado = dado1 - dado2;
+                dado = dado1 - dado2;
                 int danno = Personaggio1.Attacca(dado, out dannoCritico, out percentualeDannoCritico);
                 danno = danno > ArmaGiocatore1.DannoMassimo ? ArmaGiocatore1.DannoMassimo : danno;
                 if(ArmaGiocatore1.Classe == 'S')
@@ -140,6 +143,12 @@ namespace legendsClash
                     int dannoExtra = danno / 100 * percentualeDannoCritico;
                     danno = danno + dannoExtra;
                 }
+
+                if (dado > ArmaGiocatore1.DannoMassimo)
+                {
+                    dado = ArmaGiocatore1.DannoMassimo;
+                }
+
                 if (Personaggio2.SubisciDanno(danno))
                 {
                     return null; //lo scontro va avanti
@@ -155,7 +164,7 @@ namespace legendsClash
             else if(dado2 > dado1)
             {
                 //il personaggio 2 attacca
-                int dado = dado2 - dado2;
+                dado = dado2 - dado1;
                 int danno = Personaggio2.Attacca(dado, out dannoCritico, out percentualeDannoCritico);
                 danno = danno > ArmaGiocatore2.DannoMassimo ? ArmaGiocatore2.DannoMassimo : danno;
                 if (ArmaGiocatore2.Classe == 'S')
@@ -165,13 +174,20 @@ namespace legendsClash
                     //il danno massimo è 20
                     danno = danno + dannoExtra > 20 ? 20 : danno + dannoExtra;
                 }
-                if (dannoCritico)
+
+                if (dannoCritico == true)
                 {
                     //calcolo il danno extra in base alla percentuale del dado aggiuntivo
                     int dannoExtra = danno / 100 * percentualeDannoCritico;
                     danno = danno + dannoExtra;
                 }
-                if (Personaggio1.SubisciDanno(danno))
+
+                if (dado > ArmaGiocatore2.DannoMassimo)
+                {
+                    dado = ArmaGiocatore2.DannoMassimo;
+                }
+
+                if (Personaggio1.SubisciDanno(danno) == true)
                 {
                     return null; //lo scontro va avanti
                 }
@@ -188,17 +204,6 @@ namespace legendsClash
                 //è un pareggio, ritorno null
                 return null; //lo scontro va avanti come se non fosse successo niente
             }
-
         }
-
-        public void NewRound()
-        {
-            //ristoro i giocatori
-            Personaggio1.ristora(true);
-            Personaggio2.ristora(true);
-            RoundCorrente++;
-        }
-
-        
     }
 }

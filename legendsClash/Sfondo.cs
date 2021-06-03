@@ -11,14 +11,16 @@ namespace legendsClash
     {
         private string _source;
         private int _id;
+
         public Sfondo() { }
         public Sfondo(string s, int i)
         {
             _source = s;
             _id = i;
         }
-        [XmlElement(ElementName = "source")]
-        public string source
+
+        [XmlElement(ElementName = "Source")]
+        public string Source
         {
             get
             {
@@ -26,8 +28,7 @@ namespace legendsClash
             }
             set
             {
-
-                if (String.IsNullOrEmpty(_source))
+                if (String.IsNullOrEmpty(value))
                 {
                     throw new Exception("errore");
                 }
@@ -35,11 +36,9 @@ namespace legendsClash
                 {
                     _source = value;
                 }
-
-
-
             }
         }
+
         [XmlElement(ElementName = "id")]
         public int id
         {
@@ -50,7 +49,7 @@ namespace legendsClash
             set
             {
 
-                if (_id > 0)
+                if (value >= 0)
                 {
                     _id = value;
                 }
@@ -64,7 +63,7 @@ namespace legendsClash
 
         public override string ToString()
         {
-            return source;
+            return Source;
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace legendsClash
 {
@@ -30,38 +32,60 @@ namespace legendsClash
         private const int VAGGMAX_B = 10;
         private const int VAGGMAX_C = 5;
 
+        Asset _asset;
         public AggiungiArma(Asset asset)
         {
-            InitializeComponent();
-            this.comboClasse.Items.Add('S');
-            this.comboClasse.Items.Add('A');
-            this.comboClasse.Items.Add('B');
-            this.comboClasse.Items.Add('C');
-            this.comboClasse.Items.Add('D');
-            _asset = asset;
+            try
+            {
+                InitializeComponent();
+                this.comboClasse.Items.Add('S');
+                this.comboClasse.Items.Add('A');
+                this.comboClasse.Items.Add('B');
+                this.comboClasse.Items.Add('C');
+                this.comboClasse.Items.Add('D');
+                _asset = asset;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-        Asset _asset;
 
         private void btnCreaArma_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 string nome = txtNome.Text.ToString();
-                char classe = (char)comboClasse.SelectedItem;
                 int pfAgg = int.Parse(txtPFAgg.Text);
-                string source = imgArma.Source.ToString();
                 int percDannoAgg = -1; //il valore verrà assegnato nella classe
 
-                Arma a = new Arma(classe, nome, source, pfAgg, percDannoAgg);
-                _asset.Armi.Add(a);
-                //TODO : salva in xml
-                this.Hide();
-                MainWindow mw = new MainWindow(_asset);
+                if (!String.IsNullOrWhiteSpace(nome) && pfAgg >= 0 && comboClasse.SelectedIndex >= 0)
+                {
+                    char classe = (char)comboClasse.SelectedItem;
+                    string source = imgArma.Source.ToString();
+
+                    Arma a = new Arma(classe, nome, source, pfAgg, percDannoAgg);
+                    _asset.Armi.Add(a);
+
+                    Serializza();
+
+                    this.Hide();
+                    Visualizza vis = new Visualizza(_asset);
+                    vis.Show();
+                }  
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void Serializza()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Asset));
+            TextWriter writer = new StreamWriter("asset.xml");
+
+            serializer.Serialize(writer, _asset);
         }
 
         private void comboClasse_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -120,6 +144,13 @@ namespace legendsClash
             }
 
             return pfMax;
+        }
+
+        private void btn_home_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }

@@ -13,64 +13,67 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/sfondo.jpeg"/>
         </Grid.Background>
+
         <Grid  x:Name="grdScegliPersonaggio" Visibility="Visible">
-            <ListView x:Name="lstPersonaggi1" HorizontalAlignment="Left" Height="193" Margin="10,59,0,0" VerticalAlignment="Top" Width="241" SelectionChanged="lstPersonaggi1_SelectionChanged">
+            <ListView x:Name="lstPersonaggi1" HorizontalAlignment="Left" Height="350" Margin="10,59,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="lstPersonaggi1_SelectionChanged" Grid.ColumnSpan="2">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nome" Width="100" DisplayMemberBinding="{Binding Nome}"/>
+                        <GridViewColumn Header="Nome" Width="80" DisplayMemberBinding="{Binding Nome}"/>
                         <GridViewColumn Header="Vittorie" Width="45" DisplayMemberBinding="{Binding NumeroVittorie}"/>
-                        <GridViewColumn Header="Punti ferita" Width="100" DisplayMemberBinding="{Binding PuntiFeritaMassimiCheIlPersonaggioHa}"/>
+                        <GridViewColumn Header="Punti ferita" Width="70" DisplayMemberBinding="{Binding PuntiFerita}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView x:Name="lstPersonaggi2" HorizontalAlignment="Left" Height="193" Margin="541,59,0,0" VerticalAlignment="Top" Width="241" SelectionChanged="lstPersonaggi2_SelectionChanged">
+            <ListView x:Name="lstPersonaggi2" HorizontalAlignment="Left" Height="342" Margin="581,59,0,0" VerticalAlignment="Top" Width="201" SelectionChanged="lstPersonaggi2_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nome" Width="100" DisplayMemberBinding="{Binding Nome}"/>
+                        <GridViewColumn Header="Nome" Width="80" DisplayMemberBinding="{Binding Nome}"/>
                         <GridViewColumn Header="Vittorie" Width="45" DisplayMemberBinding="{Binding NumeroVittorie}"/>
-                        <GridViewColumn Header="Punti ferita" Width="100" DisplayMemberBinding="{Binding PuntiFeritaMassimiCheIlPersonaggioHa}"/>
+                        <GridViewColumn Header="Punti ferita" Width="70" DisplayMemberBinding="{Binding PuntiFerita}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Label Content="Personaggio 1" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" Width="241" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
-            <Label Content="Personaggio 2" HorizontalAlignment="Left" Margin="541,22,0,0" VerticalAlignment="Top" Width="241" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
-            <Image x:Name="imgPersonaggio1" HorizontalAlignment="Left" Height="137" Margin="57,272,0,0" VerticalAlignment="Top" Width="151"/>
-            <Image x:Name="imgPersonaggio2" HorizontalAlignment="Left" Height="137" Margin="595,272,0,0" VerticalAlignment="Top" Width="151"/>
-            <Button x:Name="btnCambiaArma" Content="scegli arma" HorizontalAlignment="Left" Margin="304,197,0,0" VerticalAlignment="Top" Width="166" Height="55" Background="#7FDDDDDD" Click="btnCambiaArma_Click"/>
+            <Label Content="Personaggio 1" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="141" Foreground="White" FontSize="20" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label Content="Personaggio 2" HorizontalAlignment="Left" Margin="641,27,0,0" VerticalAlignment="Top" Width="141" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
+            <Image x:Name="imgPersonaggio1" HorizontalAlignment="Left" Height="232" Margin="215,59,0,0" VerticalAlignment="Top" Width="165"/>
+            <Image x:Name="imgPersonaggio2" HorizontalAlignment="Left" Height="232" Margin="411,59,0,0" VerticalAlignment="Top" Width="165"/>
+            <Button x:Name="btnCambiaArma" Content="Scegli personaggi" HorizontalAlignment="Left" Margin="312,346,0,0" VerticalAlignment="Top" Width="166" Height="55" Background="#7FDDDDDD" Click="btnCambiaArma_Click"/>
+            <Label Content="Seleziona personaggi" Margin="278,10,269,0" VerticalAlignment="Top" Height="48" FontSize="25" Foreground="White"/>
 
         </Grid>
+
         <Grid  x:Name="grdScegliArma" Visibility="Hidden">
-            <ListView x:Name="lstArma1" HorizontalAlignment="Left" Height="193" Margin="10,59,0,0" VerticalAlignment="Top" Width="241" SelectionChanged="lstArma1_SelectionChanged">
+            <ListView x:Name="lstArma1" HorizontalAlignment="Left" Height="350" Margin="10,59,0,0" VerticalAlignment="Top" Width="240" SelectionChanged="lstArma1_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nome" Width="100" DisplayMemberBinding="{Binding Nome}"/>
-                        <GridViewColumn Header="Vittorie" Width="45" DisplayMemberBinding="{Binding NumeroVittorie}"/>
-                        <GridViewColumn Header="Punti ferita" Width="100" DisplayMemberBinding="{Binding PuntiFeritaMassimiCheIlPersonaggioHa}"/>
+                        <GridViewColumn Header="Nome" Width="110" DisplayMemberBinding="{Binding Nome}"/>
+                        <GridViewColumn Header="Classe" Width="45" DisplayMemberBinding="{Binding Classe}"/>
+                        <GridViewColumn Header="Vita aggiunta" Width="80" DisplayMemberBinding="{Binding VitaAggiunta}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView x:Name="lstArma2" HorizontalAlignment="Left" Height="193" Margin="541,59,0,0" VerticalAlignment="Top" Width="241" SelectionChanged="lstArma2_SelectionChanged">
+            <ListView x:Name="lstArma2" HorizontalAlignment="Left" Height="350" Margin="541,59,0,0" VerticalAlignment="Top" Width="241" SelectionChanged="lstArma2_SelectionChanged">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nome" Width="100" DisplayMemberBinding="{Binding Nome}"/>
-                        <GridViewColumn Header="Vittorie" Width="45" DisplayMemberBinding="{Binding NumeroVittorie}"/>
-                        <GridViewColumn Header="Punti ferita" Width="100" DisplayMemberBinding="{Binding PuntiFeritaMassimiCheIlPersonaggioHa}"/>
+                        <GridViewColumn Header="Nome" Width="110" DisplayMemberBinding="{Binding Nome}"/>
+                        <GridViewColumn Header="Classe" Width="45" DisplayMemberBinding="{Binding Classe}"/>
+                        <GridViewColumn Header="Vita aggiunta" Width="80" DisplayMemberBinding="{Binding VitaAggiunta}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Label Content="Arma 1" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" Width="241" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
-            <Label Content="Arma 2" HorizontalAlignment="Left" Margin="541,22,0,0" VerticalAlignment="Top" Width="241" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
-            <Image x:Name="imgArma1" HorizontalAlignment="Left" Height="137" Margin="57,272,0,0" VerticalAlignment="Top" Width="151"/>
-            <Image x:Name="imgArma2" HorizontalAlignment="Left" Height="137" Margin="595,272,0,0" VerticalAlignment="Top" Width="151"/>
-            <Button x:Name="btnImpostazioni" Content="inizia combattimento" HorizontalAlignment="Left" Margin="304,197,0,0" VerticalAlignment="Top" Width="166" Height="55" Background="#7FDDDDDD" Click="btnImpostazioni_Click"/>
+            <Label Content="Arma 1" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="75" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
+            <Label Content="Arma 2" HorizontalAlignment="Left" Margin="706,22,0,0" VerticalAlignment="Top" Width="76" Foreground="White" FontSize="20" HorizontalContentAlignment="Center"/>
+            <Image x:Name="imgArma1" HorizontalAlignment="Left" Height="137" Margin="276,59,0,0" VerticalAlignment="Top" Width="241"/>
+            <Image x:Name="imgArma2" HorizontalAlignment="Left" Height="137" Margin="276,201,0,0" VerticalAlignment="Top" Width="241"/>
+            <Button x:Name="btnImpostazioni" Content="inizia combattimento" HorizontalAlignment="Left" Margin="311,354,0,0" VerticalAlignment="Top" Width="166" Height="55" Background="#7FDDDDDD" Click="btnImpostazioni_Click"/>
+            <Label Content="Seleziona armi" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" Width="173" FontSize="25" Foreground="White"/>
 
         </Grid>
 
         <Grid x:Name="grdImpostazioni" Visibility="Hidden">
-            <Label Content="Impostazioni" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Foreground="White" FontSize="36" HorizontalContentAlignment="Center" Height="60"/>
-            <Label Content="del macth" HorizontalAlignment="Left" Margin="10,75,0,0" VerticalAlignment="Top" Width="772" Foreground="White" FontSize="20" HorizontalContentAlignment="Center" Height="49"/>
-            <Label Content="del macth" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Width="336" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" Height="49"/>
-            <ComboBox x:Name="cmbNumeroRound" HorizontalAlignment="Left" Margin="468,129,0,0" VerticalAlignment="Top" Width="220" Height="49">
+            <Label Content="Impostazioni del match" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Foreground="White" FontSize="36" HorizontalContentAlignment="Center" Height="60"/>
+            <Label Content="Numero di round" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="336" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" Height="49"/>
+            <ComboBox x:Name="cmbNumeroRound" HorizontalAlignment="Left" Margin="468,85,0,0" VerticalAlignment="Top" Width="220" Height="49" RenderTransformOrigin="0.504,0.303">
                 <ComboBox.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -78,8 +81,8 @@
                     </LinearGradientBrush>
                 </ComboBox.Background>
             </ComboBox>
-            <Label Content="chi cambia arma" HorizontalAlignment="Left" Margin="10,183,0,0" VerticalAlignment="Top" Width="336" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" Height="49"/>
-            <ComboBox x:Name="cmbCambioArma" HorizontalAlignment="Left" Margin="468,183,0,0" VerticalAlignment="Top" Width="220" Height="49">
+            <Label Content="Giocatore che cambia arma" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" Width="336" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" Height="49"/>
+            <ComboBox x:Name="cmbCambioArma" HorizontalAlignment="Left" Margin="468,156,0,0" VerticalAlignment="Top" Width="220" Height="49">
                 <ComboBox.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -87,8 +90,8 @@
                     </LinearGradientBrush>
                 </ComboBox.Background>
             </ComboBox>
-            <Label Content="scenario" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="336" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" Height="49"/>
-            <ComboBox x:Name="cmbScenario" HorizontalAlignment="Left" Margin="468,237,0,0" VerticalAlignment="Top" Width="220" Height="49">
+            <Label Content="Scenario" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top" Width="336" Foreground="White" FontSize="20" HorizontalContentAlignment="Right" Height="49"/>
+            <ComboBox x:Name="cmbScenario" HorizontalAlignment="Left" Margin="468,230,0,0" VerticalAlignment="Top" Width="220" Height="49">
                 <ComboBox.Background>
                     <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                         <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -100,42 +103,34 @@
 
         </Grid>
 
-        <Grid x:Name="grdGioco" Visibility="Hidden">
-            <Label x:Name="lblNome1" Content="nome1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="170" Foreground="White" FontSize="20" Height="49"/>
-            <Label Content=":" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" Width="20" Foreground="White" FontSize="20" Height="49"/>
-            <Label x:Name="lblPuntiVita1" Content="pvg1" HorizontalAlignment="Left" Margin="210,10,0,0" VerticalAlignment="Top" Width="134" Foreground="White" FontSize="20" Height="49"/>
-            <Label Content="danno arma" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top" Width="170" Foreground="White" FontSize="20" Height="49"/>
-            <Label Content=":" HorizontalAlignment="Left" Margin="185,64,0,0" VerticalAlignment="Top" Width="20" Foreground="White" FontSize="20" Height="49"/>
-            <Label x:Name="lblDannoArma1" Content="da1f" HorizontalAlignment="Left" Margin="210,64,0,0" VerticalAlignment="Top" Width="134" Foreground="White" FontSize="20" Height="49"/>
-            <Label x:Name="lblPuntiVita2" Content="pvg1" HorizontalAlignment="Left" Margin="448,11,0,0" VerticalAlignment="Top" Width="96" Foreground="White" FontSize="20" Height="48" HorizontalContentAlignment="Right"/>
-            <Label Content=":" HorizontalAlignment="Left" Margin="549,10,0,0" VerticalAlignment="Top" Width="20" Foreground="White" FontSize="20" Height="48"/>
-            <Label x:Name="lblNome2" Content="nome2" HorizontalAlignment="Left" Margin="574,11,0,0" VerticalAlignment="Top" Width="208" Foreground="White" FontSize="20" Height="48" HorizontalContentAlignment="Right"/>
-            <Label x:Name="lblDannoArma2" Content="da2f" HorizontalAlignment="Left" Margin="448,65,0,0" VerticalAlignment="Top" Width="96" Foreground="White" FontSize="20" Height="48" HorizontalContentAlignment="Right"/>
-            <Label Content=":" HorizontalAlignment="Left" Margin="549,64,0,0" VerticalAlignment="Top" Width="20" Foreground="White" FontSize="20" Height="48"/>
-            <Label Content="danno arma" HorizontalAlignment="Left" Margin="574,65,0,0" VerticalAlignment="Top" Width="208" Foreground="White" FontSize="20" Height="48" HorizontalContentAlignment="Right"/>
-            <Image x:Name="imgG2" HorizontalAlignment="Left" Height="253" Margin="510,156,0,0" VerticalAlignment="Top" Width="225"/>
-            <Image x:Name="imgG1" HorizontalAlignment="Left" Height="253" Margin="61,156,0,0" VerticalAlignment="Top" Width="225"/>
-            <Button x:Name="btnAttacca" Content="Attacca" HorizontalAlignment="Left" Margin="331,262,0,0" VerticalAlignment="Top" Width="135" Height="47" Background="#7FDDDDDD" Click="btnAttacca_Click"/>
-            <Label Content="Giocatore 1" HorizontalAlignment="Left" Margin="10,118,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33"/>
-            <Label Content="Giocatore 2" HorizontalAlignment="Left" Margin="506,117,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Right"/>
+        <Grid x:Name="grdGioco" Visibility="Hidden" Margin="0,5,0,-5">
+            <Label x:Name="lblNome1" Content="nome1" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="375" Foreground="White" FontSize="20" Height="33"/>
+            <Label x:Name="lblDannoArma1" Content="da1f" Margin="10,123,407,0" VerticalAlignment="Top" Foreground="White" FontSize="20" Height="33" RenderTransformOrigin="0.521,-0.276"/>
+            <Label x:Name="lblNome2" Content="nome2" HorizontalAlignment="Left" Margin="395,68,0,0" VerticalAlignment="Top" Width="387" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Right"/>
+            <Label x:Name="lblDannoArma2" Content="da2f" HorizontalAlignment="Left" Margin="385,123,0,0" VerticalAlignment="Top" Width="397" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Right"/>
+            <Image x:Name="imgG2" HorizontalAlignment="Left" Height="242" Margin="557,161,0,0" VerticalAlignment="Top" Width="225"/>
+            <Image x:Name="imgG1" HorizontalAlignment="Left" Height="248" Margin="10,161,0,0" VerticalAlignment="Top" Width="225"/>
+            <Button x:Name="btnAttacca" Content="Attacca" HorizontalAlignment="Left" Margin="325,262,0,0" VerticalAlignment="Top" Width="135" Height="47" Background="#7FDDDDDD" Click="btnAttacca_Click"/>
+            <Label Content="Giocatore 1  " HorizontalAlignment="Left" VerticalAlignment="Top" Width="128" Foreground="White" FontSize="20" Height="33" Margin="10,10,0,0"/>
+            <Label Content="Giocatore 2" HorizontalAlignment="Left" Margin="667,10,0,0" VerticalAlignment="Top" Width="115" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Right"/>
         </Grid>
+
         <Grid x:Name="grdPopUp" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="img/popup.png"/>
             </Grid.Background>
-            <Label Content="" HorizontalAlignment="Left" Margin="196,99,0,0" VerticalAlignment="Top" Height="35" Width="127"/>
 
             <!--pop up che viene mostrato quando si spinge su "Attacca"-->
-            <Label Content="Giocatore 2" HorizontalAlignment="Left" Margin="450,107,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
-            <Label Content="Giocatore 1" HorizontalAlignment="Left" Margin="136,113,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
-            <Image HorizontalAlignment="Left" Height="100" Margin="379,175,0,0" VerticalAlignment="Top" Width="100" Source="img/vs.png"/>
-            <Image x:Name="imgDado1" HorizontalAlignment="Left" Height="100" Margin="223,175,0,0" VerticalAlignment="Top" Width="100"/>
-            <Image x:Name="imgDado2" HorizontalAlignment="Left" Height="100" Margin="553,175,0,0" VerticalAlignment="Top" Width="100"/>
-
-            <Grid x:Name="grdDannoCritico" Visibility="Hidden">
-                <Image HorizontalAlignment="Left" Height="361" Margin="107,48,0,0" VerticalAlignment="Top" Width="623" Source="img/dannoCritico.png"/>
-            </Grid>
-            <Button x:Name="btnContinua" Content="Continua" HorizontalAlignment="Left" Margin="364,275,0,0" VerticalAlignment="Top" Width="136" Height="46" Background="#7F000000" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="btnContinua_Click">
+            <Image HorizontalAlignment="Left" Height="100" Margin="361,175,0,0" VerticalAlignment="Top" Width="100" Source="img/vs.png" RenderTransformOrigin="1.03,0.11"/>
+            <Label Content="Giocatore 2" HorizontalAlignment="Left" Margin="479,72,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
+            <Label Content="Giocatore 1" HorizontalAlignment="Left" Margin="66,72,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
+            <Image x:Name="imgDado11" HorizontalAlignment="Left" Height="100" Margin="160,110,0,0" VerticalAlignment="Top" Width="100"/>
+            <Image x:Name="imgDado12" HorizontalAlignment="Left" Height="100" Margin="88,218,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.28,0.53"/>
+            <Image x:Name="imgDado13" HorizontalAlignment="Left" Height="100" Margin="223,218,0,0" VerticalAlignment="Top" Width="100"/>
+            <Image x:Name="imgDado21" HorizontalAlignment="Left" Height="100" Margin="572,110,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.1,0.76"/>
+            <Image x:Name="imgDado22" Height="100" Margin="501,218,191,0" VerticalAlignment="Top"/>
+            <Image x:Name="imgDado23" HorizontalAlignment="Left" Height="100" Margin="638,218,0,0" VerticalAlignment="Top" Width="100"/>
+            <Button x:Name="btnContinua" Content="Continua" HorizontalAlignment="Left" Margin="338,277,0,0" VerticalAlignment="Top" Width="136" Height="46" Background="#7F000000" Foreground="White" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="btnContinua_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -145,26 +140,29 @@
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
+        </Grid>
 
+        <Grid x:Name="grdDannoCritico" Visibility="Hidden">
+            <Image HorizontalAlignment="Left" Height="219" Margin="199,-25,0,0" VerticalAlignment="Top" Width="394" Source="img/dannoCritico.png"/>
         </Grid>
 
         <Grid x:Name="grdVincitoreRound" Visibility="Hidden">
-            <Label x:Name="lblRoundGiocatore1" Content="Giocatore 1" HorizontalAlignment="Left" Margin="69,86,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
-            <Label Content="VINCITORE ROUND" HorizontalAlignment="Left" Margin="69,21,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="36" Height="60" HorizontalContentAlignment="Center"/>
-            <Label x:Name="lblRoundGiocatore2" Content="Giocatore 1" HorizontalAlignment="Left" Margin="427,156,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
-            <Label Content="PERDENTE ROUND" HorizontalAlignment="Left" Margin="427,91,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="36" Height="60" HorizontalContentAlignment="Center"/>
-            <Button x:Name="btnNewRound" Content="Inizia round" HorizontalAlignment="Left" Margin="355,237,0,0" VerticalAlignment="Top" Width="116" Height="38" Background="#7FDDDDDD" Click="btnNewRound_Click"/>
+            <Label x:Name="lblRoundGiocatore1" Content="Giocatore 1" HorizontalAlignment="Left" Margin="69,86,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="54" HorizontalContentAlignment="Center"/>
+            <Label Content="VINCITORE ROUND" HorizontalAlignment="Left" Margin="36,21,0,0" VerticalAlignment="Top" Width="328" Foreground="White" FontSize="36" Height="60" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lblRoundGiocatore2" Content="Giocatore 1" HorizontalAlignment="Left" Margin="427,156,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="52" HorizontalContentAlignment="Center"/>
+            <Label Content="PERDENTE ROUND" HorizontalAlignment="Left" Margin="413,91,0,0" VerticalAlignment="Top" Width="321" Foreground="White" FontSize="36" Height="60" HorizontalContentAlignment="Center"/>
+            <Button x:Name="btnNewRound" Content="Inizia round" HorizontalAlignment="Left" Margin="347,228,0,0" VerticalAlignment="Top" Width="130" Height="52" Background="#7FDDDDDD" Click="btnNewRound_Click" FontSize="18"/>
             <Image x:Name="imgRoundG1" HorizontalAlignment="Left" Height="251" Margin="36,145,0,0" VerticalAlignment="Top" Width="283"/>
             <Image x:Name="imgRoundG2" HorizontalAlignment="Left" Height="169" Margin="520,213,0,0" VerticalAlignment="Top" Width="196"/>
 
         </Grid>
 
         <Grid x:Name="grdFinePartita" Visibility="Hidden">
-            <Label x:Name="lblFineGiocatore1" Content="Giocatore 1" HorizontalAlignment="Left" Margin="69,86,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lblFineGiocatore1" Content="Giocatore 1" HorizontalAlignment="Left" Margin="69,86,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="41" HorizontalContentAlignment="Center"/>
             <Label Content="VINCITORE" HorizontalAlignment="Left" Margin="69,21,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="36" Height="60" HorizontalContentAlignment="Center"/>
-            <Label x:Name="lblFineGiocatore2" Content="Giocatore 1" HorizontalAlignment="Left" Margin="427,156,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="33" HorizontalContentAlignment="Center"/>
+            <Label x:Name="lblFineGiocatore2" Content="Giocatore 1" HorizontalAlignment="Left" Margin="427,156,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="20" Height="39" HorizontalContentAlignment="Center"/>
             <Label Content="PERDENTE" HorizontalAlignment="Left" Margin="427,91,0,0" VerticalAlignment="Top" Width="276" Foreground="White" FontSize="36" Height="60" HorizontalContentAlignment="Center"/>
-            <Button x:Name="btnFinePartita" Content="Inizia round" HorizontalAlignment="Left" Margin="355,237,0,0" VerticalAlignment="Top" Width="116" Height="38" Background="#7FDDDDDD" Click="btnNewRound_Click"/>
+            <Button x:Name="btnFinePartita" Content="Ritorna alla schermata&#xD;&#xA;           principale" HorizontalAlignment="Left" Margin="324,231,0,0" VerticalAlignment="Top" Width="176" Height="65" Background="#7FDDDDDD" Click="btnFinePartita_Click" FontSize="17"/>
             <Image x:Name="imgFineG1" HorizontalAlignment="Left" Height="251" Margin="36,145,0,0" VerticalAlignment="Top" Width="283"/>
             <Image x:Name="imgFineG2" HorizontalAlignment="Left" Height="169" Margin="520,213,0,0" VerticalAlignment="Top" Width="196"/>
         </Grid>

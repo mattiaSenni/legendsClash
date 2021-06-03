@@ -19,7 +19,9 @@ namespace legendsClash
 
         private void btn_home_Click(object sender, RoutedEventArgs e)
         {
-            //to do: torna alla home
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
 
         private void cmb_Classi_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -86,13 +88,11 @@ namespace legendsClash
                 case 3:
                     nome = "nightmarebringer";
                     break;
-
             }
 
             nome += DateTime.Now.Day.ToString() + DateTime.Now.Second.ToString();
 
             txt_nome.Text = nome;
-
         }
 
         public void GestisciGraficaLadro()
@@ -148,24 +148,28 @@ namespace legendsClash
 
         private void btn_crea_Click(object sender, RoutedEventArgs e)
         {
-            //da aggiustare il source delle immagini
             try
             {
                 Personaggio nuovo;
                 if (cmb_Classi.SelectedIndex == 0)
                 {
-                    nuovo = new Gigante(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\gigante.png");
+                    nuovo = new Gigante(txt_nome.Text, Convert.ToInt32(txt_vita.Text), "img/gigante.jpeg");
                 }
                 else if (cmb_Classi.SelectedIndex == 1)
                 {
-                    nuovo = new Ladro(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\assassino.png", Convert.ToInt32(txt_percentualeDannoCriticoLadro.Text), Convert.ToInt32(txt_aumentoDannoCritico.Text));
+                    nuovo = new Ladro(txt_nome.Text, Convert.ToInt32(txt_vita.Text), "img/assassino.jpeg", Convert.ToInt32(txt_percentualeDannoCriticoLadro.Text), Convert.ToInt32(txt_aumentoDannoCritico.Text));
                 }
                 else
                 {
-                    nuovo = new Cavaliere(txt_nome.Text, Convert.ToInt32(txt_vita.Text), @"\img\cavaliere.jpg", Convert.ToInt32(txt_percentualeDannoAumentatoCavaliere.Text));
+                    nuovo = new Cavaliere(txt_nome.Text, Convert.ToInt32(txt_vita.Text), "img/cavaliere.jpeg", Convert.ToInt32(txt_percentualeDannoAumentatoCavaliere.Text));
                 }
                 _asset.Personaggi.Add(nuovo);
-                //TODO salva in memoria
+
+                MainWindow mw = new MainWindow(_asset);
+
+                this.Hide();
+                Visualizza vis = new Visualizza(_asset);
+                vis.Show();
             }
             catch (Exception ex)
             {

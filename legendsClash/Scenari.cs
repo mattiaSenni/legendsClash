@@ -8,16 +8,18 @@ namespace legendsClash
 {
     [XmlRoot(ElementName = "Scenari")]
     public class Scenari
-    {
-       [XmlElement(ElementName ="Sfondo")]
-        public List<Sfondo> Sfondi { get; set; }
+    {   
         public Scenari()
         {
             Sfondi = new List<Sfondo>();
         }
+
         public Scenari(List<Sfondo> s)
         {
             Sfondi = s;
         }
+
+        [XmlElement(ElementName ="Sfondo")]
+        public List<Sfondo> Sfondi { get; set; }
     }
 }

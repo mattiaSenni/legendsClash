@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace legendsClash
 {
@@ -20,21 +22,69 @@ namespace legendsClash
     /// </summary>
     public partial class MainWindow : Window
     {
+        Asset _asset;
+
         public MainWindow()
         {
             InitializeComponent();
-            Ladro p1 = new Ladro("luigi", LimitiPersonaggi.LADRO_VITA_MAX, "img/ladro.jpg", LimitiPersonaggi.LADRO_POSSIBILITA_DANNO_CRITICO_MAX, LimitiPersonaggi.LADRO_DANNO_CRITICO_MAX);
-            Ladro p2 = new Ladro("mario", LimitiPersonaggi.LADRO_VITA_MIN, "img/ladro.jpg", LimitiPersonaggi.LADRO_POSSIBILITA_DANNO_CRITICO_MAX, LimitiPersonaggi.LADRO_DANNO_CRITICO_MAX);
-            Arma a1 = new Arma('D', "super mega arma", "img/vs.png");
-            _asset = new Asset(new List<Arma>() { a1 }, new List<Personaggio>() { p1, p2 }, new Scenari(new List<Sfondo>() { new Sfondo("img/sfondo.png", 0) }));
+
+            try
+            {
+                //_asset = Deserializzazione();
+
+                Ladro p1 = new Ladro("luigi", LimitiPersonaggi.LADRO_VITA_MAX, "img/ladro.jpeg", LimitiPersonaggi.LADRO_POSSIBILITA_DANNO_CRITICO_MAX, LimitiPersonaggi.LADRO_DANNO_CRITICO_MAX);
+                Ladro p2 = new Ladro("mario", LimitiPersonaggi.LADRO_VITA_MIN, "img/ladro.jpeg", LimitiPersonaggi.LADRO_POSSIBILITA_DANNO_CRITICO_MAX, LimitiPersonaggi.LADRO_DANNO_CRITICO_MAX);
+                Gigante p3 = new Gigante("marcello", LimitiPersonaggi.GIGANTE_VITA_MIN, "img/gigante.jpeg");
+                Cavaliere p4 = new Cavaliere("spaghetti", LimitiPersonaggi.CAVALIERE_VITA_MIN, "img/cavaliere.jpeg", LimitiPersonaggi.CAVALIERE_DANNO_MIN);
+                /*_asset.Personaggi.Add(p1);
+                _asset.Personaggi.Add(p2);
+                _asset.Personaggi.Add(p3);
+                _asset.Personaggi.Add(p4);*/
+                _asset = new Asset(new List<Arma>(), new List<Personaggio>() { p1, p2, p3, p4 }, new Scenari(new List<Sfondo>() { new Sfondo("ciao", 2) }));
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossibile caricare il file, " + ex.Message);
+                _asset = new Asset();
+            }
+            Serializza();
         }
 
         public MainWindow(Asset asset)
         {
             InitializeComponent();
             _asset = asset;
+
+            Serializza();
         }
-        Asset _asset;
+
+        public Asset Deserializzazione()
+        {
+            Asset asset = new Asset();
+
+            if (!File.Exists("asset.xml"))
+            {
+                throw new FileNotFoundException("File non esistente");
+            }
+
+            XmlSerializer serializer = new XmlSerializer(typeof(Asset));
+
+            using (Stream reader = new FileStream("asset.xml", FileMode.Open))
+            {
+                asset = (Asset)serializer.Deserialize(reader);
+            }
+
+            return asset;
+        }
+
+        public void Serializza()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Asset));
+            TextWriter writer = new StreamWriter("asset.xml");
+
+            serializer.Serialize(writer, _asset);
+        }
 
         private void btnIniziaBattaglia_Click(object sender, RoutedEventArgs e)
         {
@@ -71,10 +121,11 @@ namespace legendsClash
             this.Close();
         }
 
-        private void btnGioca_Click(object sender, RoutedEventArgs e)
+        private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-            Gioca g = new Gioca(_asset);
-            g.Show(); this.Close();
+            Asset asset = new Asset();
+            _asset = asset;
+            Serializza();
         }
     }
 }

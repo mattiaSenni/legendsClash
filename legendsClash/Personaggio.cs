@@ -10,100 +10,96 @@ namespace legendsClash
 {
     public abstract class Personaggio : IEquatable<Personaggio>
     {
-        string Nome;
-        protected int _puntiFeritaMassimiCheIlPersonaggioHa;
-        protected int _puntiFeritaDelPersonaggio;
-        int NumeroVittorie;
-        string SourceImmaginePersonaggio;
-
-        public Personaggio(string _nome, string sourceImage, int _numeroVittorie = 0)
-        {
-            nome = _nome;
-            numeroVittoria = _numeroVittorie;
-            sourceImmagine = sourceImage;
-        }
+        private string _nome;
+        protected int _puntiFeritaMassimi;
+        protected int _puntiFerita;
+        private int _numeroVittorie;
+        private string _sourceImmagine;
 
         public Personaggio()
         {
-
+            
         }
+
+        public Personaggio(string nome, string sourceImage, int numeroVittorie = 0)
+        {
+            Nome = nome;
+            NumeroVittorie = numeroVittorie;
+            SourceImmagine = sourceImage;
+        }
+
         [XmlAttribute(attributeName: "Nome")]
-        public string nome
+        public string Nome
         {
             get
             {
-                return Nome;
+                return _nome;
             }
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    Nome = value;
+                    _nome = value;
                 }
             }
         }
 
-
-        public virtual int PuntiFerita
+        [XmlAttribute(attributeName: "Vita")]
+        public int PuntiFerita
         {
             get => default;
             set
             {
                 if (value >= 35 || value <= 85)
                 {
-                    _puntiFeritaMassimiCheIlPersonaggioHa = value;
-                    _puntiFeritaDelPersonaggio = value;
+                    _puntiFerita = value;
+                    _puntiFeritaMassimi = value;
                 }
             }
         }
 
         [XmlAttribute(attributeName: "Vittorie")]
-        public int numeroVittoria
+        public int NumeroVittorie
         {
             get
             {
-                return NumeroVittorie;
+                return _numeroVittorie;
             }
             set
             {
                 if (value >= 0)
                 {
-                    NumeroVittorie = value;
+                    _numeroVittorie = value;
                 }
                 else
                     throw new Exception("vittorie non valide");
             }
         }
 
-        public string sourceImmagine
+        public string SourceImmagine
         {
             get
             {
-                return SourceImmaginePersonaggio;
+                return _sourceImmagine;
             }
             set
             {
                 if (!string.IsNullOrEmpty(value))
-                    SourceImmaginePersonaggio = value;
+                    _sourceImmagine = value;
                 else
-                    throw new Exception("source immagine non valido");
+                    throw new Exception("Source immagine non valido");
             }
         }
 
-        public void aggiungiVittoria()
+        public void Ristora(bool ristoraTuttaLaVita, int percentualeDiVitaDaRecuperare = 50)
         {
-            numeroVittoria++;
-        }
-
-        public void ristora(bool ristoraTuttaLaVita, int percentualeDiVitaDaRecuperare = 50)
-        {
-            if (ristoraTuttaLaVita)
+            if (ristoraTuttaLaVita == true)
             {
-                _puntiFeritaDelPersonaggio = _puntiFeritaMassimiCheIlPersonaggioHa;
+                PuntiFerita = _puntiFeritaMassimi;
             }
             else
             {
-                _puntiFeritaDelPersonaggio += _puntiFeritaMassimiCheIlPersonaggioHa * percentualeDiVitaDaRecuperare / 100;
+                PuntiFerita += _puntiFeritaMassimi * percentualeDiVitaDaRecuperare / 100;
             }
         }
 
@@ -115,8 +111,8 @@ namespace legendsClash
 
         public bool SubisciDanno(int dannoSubito)
         {
-            _puntiFeritaDelPersonaggio -= dannoSubito;
-            if (_puntiFeritaDelPersonaggio <= 0)
+            PuntiFerita -= dannoSubito;
+            if (PuntiFerita <= 0)
             {
                 return false;
             }

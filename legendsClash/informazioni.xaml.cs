@@ -28,7 +28,7 @@ namespace legendsClash
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow m = new MainWindow(_asset);
+            MainWindow m = new MainWindow(/*_asset*/);
             m.Show();
             this.Close();
         }

@@ -64,7 +64,7 @@ namespace legendsClash
         public char Classe
         {
             get => _classe;
-            private set
+            set
             {
                 if (value != 'D' && value != 'C' && value != 'B' && value != 'A' && value != 'S')
                 {
@@ -78,7 +78,7 @@ namespace legendsClash
         public int DannoMassimo
         {
             get => _dannoMassimo;
-            private set
+            set
             {
                 if (Classe == 'A' || Classe == 'S')
                 {
@@ -109,7 +109,7 @@ namespace legendsClash
         public int VitaAggiunta
         {
             get => _vitaAggiunta;
-            private set
+            set
             {
                 if (value < 0)
                 {
@@ -156,7 +156,7 @@ namespace legendsClash
         public int PercentualeDannoExtra
         {
             get => _percentualeDannoExtra;
-            private set
+            set
             {
                 if (value < 0)
                 {

@@ -10,12 +10,13 @@ namespace legendsClash
 {
     public class Cavaliere : Personaggio
     {
-        int puntiFerita;
-        int percentualeDannoAggiuntivo;
-        public Cavaliere(string _nome, int _puntiFerita, string sourceImage, int _percentualeDannoAumentato, int _numeroVittorie = 0) : base(_nome, sourceImage, _numeroVittorie)
+        int _percentualeDannoAggiuntivo;
+
+        public Cavaliere(string nome, int puntiFerita, string sourceImage, int percentualeDannoAumentato, int numeroVittorie = 0) : base(nome, sourceImage, numeroVittorie)
         {
-            PuntiFerita = _puntiFerita;
-            PercentualeDannoAggiuntivo = _percentualeDannoAumentato;
+            PuntiFerita = puntiFerita;
+            _puntiFeritaMassimi = puntiFerita;
+            PercentualeDannoAggiuntivo = percentualeDannoAumentato;
         }
 
         public Cavaliere()
@@ -32,7 +33,6 @@ namespace legendsClash
             {
                 dannoCritico = true;
                 valoreDannoCritico = 30;
-
             }
             else
             {
@@ -41,19 +41,19 @@ namespace legendsClash
             }
             return dado + (dado * PercentualeDannoAggiuntivo / 100);
         }
+
         [XmlAttribute(attributeName: "Vita")]
-        public override int PuntiFerita
+        public new int PuntiFerita
         {
             get
             {
-                return puntiFerita;
+                return _puntiFerita;
             }
             set
             {
                 if (value >= 45 || value <= 55)
                 {
-                    _puntiFeritaMassimiCheIlPersonaggioHa = value;
-                    _puntiFeritaDelPersonaggio = value;
+                    _puntiFerita = value;
                 }
                 else
                     throw new Exception("punti ferita non validi");
@@ -64,16 +64,20 @@ namespace legendsClash
         {
             get
             {
-                return percentualeDannoAggiuntivo;
+                return _percentualeDannoAggiuntivo;
             }
             set
             {
                 if (value >= 10 || value <= 20)
-                    percentualeDannoAggiuntivo = value;
+                    _percentualeDannoAggiuntivo = value;
                 else
                     throw new Exception("percentuale danno aggiuntivo non valido");
-
             }
+        }
+
+        public override string ToString()
+        {
+            return "Cavaliere " + Nome + " con " + NumeroVittorie + " vitorie";
         }
     }
 }

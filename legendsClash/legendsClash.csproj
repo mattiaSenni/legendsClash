@@ -61,7 +61,6 @@
     <Compile Include="AggiungiPersonaggio.xaml.cs">
       <DependentUpon>AggiungiPersonaggio.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AnimaCombattente.cs" />
     <Compile Include="Battaglia.cs" />
     <Compile Include="CambioArma.cs" />
     <Compile Include="Cavaliere.cs" />
@@ -155,7 +154,46 @@
     <Resource Include="img\dannoCritico.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\ladro.jpg" />
+    <Resource Include="img\ArmaA.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ArmaB.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ArmaC.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ArmaD.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ArmaS.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ladro.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\gigante.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\cavaliere.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,26 +6,41 @@ using System.Xml.Serialization;
 
 namespace legendsClash
 {
-    [XmlRoot(ElementName = "Assert")]
+    [XmlRoot(ElementName = "Asset")]
     public class Asset
     {
-
         public Asset(List<Arma> a, List<Personaggio> p, Scenari s)
         {
             Armi = a;
             Personaggi = p;
             Scenari = s;
         }
-        public Asset() { }
 
-        [XmlElement(ElementName = "Personaggo")]
-        public List<Personaggio> Personaggi { get; set; }
+        public Asset() 
+        {
 
-        [XmlElement(ElementName = "Arma")]
-        public List<Arma> Armi { get; set; }
+        }
 
-        [XmlElement(ElementName = "Scenario")]
-        public Scenari Scenari { get; set; }
+        [XmlElement(ElementName = "Personaggi")]
+        public List<Personaggio> Personaggi 
+        {
+            get;
+            set;
+        }
+
+        [XmlElement(ElementName = "Armi")]
+        public List<Arma> Armi
+        {
+            get;
+            set;
+        }
+
+        [XmlElement(ElementName = "Scenari")]
+        public Scenari Scenari 
+        {
+            get;
+            set;
+        }
 
         public Battaglia CreaPartitta(Personaggio p1, Personaggio p2, Arma a1, Arma a2, CambioArma cambio, int nRound, Sfondo s)
         {

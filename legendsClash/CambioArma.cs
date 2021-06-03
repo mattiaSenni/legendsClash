@@ -9,6 +9,7 @@ namespace legendsClash
     {
         sempre = 0,
         vincitore = 1,
-        perdente = 2
+        perdente = 2,
+        mai = 3
     }
 }

@@ -30,6 +30,7 @@ namespace legendsClash
             RiempiListaArmi();
         }
 
+
         private void RiempiListaPersonaggi()
         {
             lstPersonaggi.Items.Clear();
@@ -60,6 +61,13 @@ namespace legendsClash
             this.Hide();
             AggiungiArma aggar = new AggiungiArma(asset);
             aggar.Show();
+        }
+
+        private void btn_home_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }
